@@ -7,7 +7,6 @@ def preprocess(data):
     messages = re.split(pattern, data)[1:]
     dates = re.findall(pattern, data)
 
-    # Clean unicode space and trailing space
     clean_dates = [d.replace('\u202f', ' ').strip() for d in dates]
 
     df = pd.DataFrame({'user_message': messages, 'message_date': clean_dates})
